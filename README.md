@@ -13,4 +13,33 @@ By moving away from consumer "plug-and-play" gear, this environment mirrors ente
 *   **State:** 🟢 Active / Live Production
 
 ### 🗺️ Network Architecture Diagram
+
 ![Network Map](./network_map.drawio.png)
+
+## 2. Architecture & Hardware (The "What")
+
+### 🔩 Hardware Specifications
+*   **Edge Router/Gateway:** Cisco 1921 Integrated Services Router (ISR G2) equipped with dual onboard 10/100/1000Mbps routed ports and expansion EHWIC slots.
+*   **Primary Distribution Switch:** Cisco Catalyst 2960 Series Layer 2 Switch (24x FastEthernet Access Ports, 2x Gigabit Ethernet Uplinks).
+*   **Secondary Expansion Switch:** Cisco Catalyst 3750 Multi-Layer Switch (Configured as a member of an abstracted stack topology running interface member prefix `Fa2/0/X`).
+
+### 📦 Core Infrastructure Services
+*   **Routing Engine:** Cisco IOS Software (Inter-VLAN subinterface routing on router 802.1Q sub-ports).
+*   **Addressing Architecture:** Stateful **Cisco IOS DHCP Server Daemon** utilizing localized allocation scopes per VLAN pool.
+*   **Network Address Translation (NAT):** Dynamic NAT Overload (PAT) running at the Cisco 1921 edge to bind multi-VLAN private blocks to a single dynamic public ISP gateway.
+*   **Security Protocol:** Extended inbound Cisco Access Control Lists (ACLs) acting as a stateful border firewall.
+
+---
+
+## 3. Project Log / Detailed Write-Ups (The "How")
+
+### 📂 Security & Networking
+*   **[Project 01: Core Network Building & Password Recovery](./projects/cisco-core-setup.md)** — Overcoming legacy hardware state-locks, baseline provisioning, and multi-tier trunk configurations.
+*   **[Project 02: Advanced VLAN Segmentation & Stateful Firewall Policy](./projects/cisco-acl-firewall.md)** — Architecting a zero-trust multi-VLAN paradigm and debugging asymmetrical traffic return paths using stateful packet inspection strings.
+
+---
+
+## 4. "What I'm Learning Next" / Roadmap (The Future)
+*   **[ ] Migration to Layer 3 Switching (Topology 2):** Wipe router-on-a-stick configurations to delegate inner-core Inter-VLAN routing natively to the Cisco 3750 multi-layer switch hardware using Switch Virtual Interfaces (SVIs) and Point-to-Point routed lines for raw wire-speed throughput optimizations.
+*   **[ ] Remote Infrastructure Management:** Provisions secure AAA profiles and SSHv2 encrypted terminal layers across lines vty 0-4 to safely retire raw physical console cables.
+*   **[ ] Localized Infrastructure Services Deployment:** Introducing a bare-metal hypervisor node (Proxmox/Ubuntu server) running localized upstream containerized DNS filters (Pi-Hole/AdGuard Home) alongside central NAS utilities.
