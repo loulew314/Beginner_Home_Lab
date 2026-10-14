@@ -14,21 +14,3 @@ By moving away from consumer "plug-and-play" gear, this environment mirrors ente
 
 ### 🗺️ Network Architecture Diagram
 *Below is the topological map illustrating traffic flowing from the edge ISP demarcation point down to localized endpoints via a multi-tier physical switch array.*
-[ 🌐 Internet / ISP Modem ]
-│
-│ (DHCP Client/Public IP)
-[ 🛡️ Cisco 1921 Edge Router ]
-│
-│ (Gig0/1 - 802.1Q 4x Trunk Trunk Expressway)
-│
-[ 🔌 Cisco 2960 Primary Switch ]
-├── Ports 1-12:  VLAN 10 (Home/Lab Access)
-├── Ports 13-24: VLAN 20 (Isolated Guest Access)
-└── Port Gig0/2: (Backbone Trunk Extension)
-│
-│ (Cat5e Physical Jumper Trunk)
-│
-[ ⚙️ Cisco 3750 Secondary Switch (Stack Member 2) ]
-├── Port Fa2/0/1:  Incoming Backbone Trunk
-├── Ports 2-12:   VLAN 30 (Isolated IoT Access)
-└── Ports 13-24:  VLAN 50 (Server Lab Infrastructure)
