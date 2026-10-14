@@ -13,4 +13,4 @@ By moving away from consumer "plug-and-play" gear, this environment mirrors ente
 *   **State:** 🟢 Active / Live Production
 
 ### 🗺️ Network Architecture Diagram
-*Below is the topological map illustrating traffic flowing from the edge ISP demarcation point down to localized endpoints via a multi-tier physical switch array.*
+![Network Map](./network_map.drawio.png)
