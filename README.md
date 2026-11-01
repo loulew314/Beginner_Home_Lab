@@ -53,10 +53,10 @@ I used 10.10.x.x so the lab can never overlap with the 192.168.x.x home network 
 - [x] VLANs 10/20/99 and 802.1Q trunk between router and switch
 - [x] Router-on-a-stick inter-VLAN routing
 - [x] NAT (PAT overload) to the home network, verified with internet access from the HP
-- [ ] Hyper-V host setup and virtual switch with VLAN tagging
-- [ ] Windows Server 2022: AD DS, DNS
-- [ ] DHCP server with relay (`ip helper-address`) across VLANs
-- [ ] PowerShell script: 5 OUs and 150 users
+- [x] Hyper-V host setup and virtual switch with VLAN tagging
+- [x] Windows Server 2022: AD DS, DNS
+- [x] DHCP server with relay (`ip helper-address`) across VLANs
+- [x] PowerShell script: 5 OUs and 150 users
 - [ ] Windows 11 client joined to the domain, authentication and connectivity tests
 - [ ] Group Policy and Cisco security hardening (port security, ACLs)
 - [ ] Remote access (RRAS VPN)
